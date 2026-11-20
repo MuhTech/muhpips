@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useLang } from "@/lib/i18n";
 import { markets } from "@/lib/content";
+import { ChooseLevel, LearningPaths, FiveMinuteLesson, ToolsTeaser, WhyMuhpips, PlansSummary, HomeFaq } from "@/components/HomeSections";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -109,6 +110,14 @@ function Index() {
           </div>
         ))}
       </section>
+
+      <ChooseLevel />
+      <LearningPaths />
+      <FiveMinuteLesson />
+      <ToolsTeaser />
+      <WhyMuhpips />
+      <PlansSummary />
+      <HomeFaq />
     </>
   );
 }
