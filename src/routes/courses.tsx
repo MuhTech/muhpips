@@ -26,14 +26,22 @@ function Courses() {
       </p>
       <p className="mt-5 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-accent px-4 py-1.5 text-sm font-semibold text-accent-foreground">
         <span className="text-bull">✓</span>
-        {t("Every course is free", "Kila kozi ni bure")}
+        {t("Beginner lessons are free in every market", "Masomo ya mwanzo ni bure katika kila soko")}
       </p>
       <div className="mt-10 grid gap-4 md:grid-cols-3">
         {levels.map((l, i) => (
           <div key={l.en} className="rounded-2xl border bg-card p-6">
             <div className="flex gap-1">{[0, 1, 2].map((d) => <span key={d} className={`h-1.5 w-8 rounded-full ${d <= i ? "bg-primary" : "bg-muted"}`} />)}</div>
-            <h2 className="mt-5 text-2xl font-bold">{t(l.en, l.sw)}</h2>
+            <div className="mt-5 flex items-center justify-between gap-3">
+              <h2 className="text-2xl font-bold">{t(l.en, l.sw)}</h2>
+              <span className={`rounded-full px-3 py-1 font-mono text-xs ${l.plan === "Free" ? "bg-accent text-accent-foreground" : l.plan === "Pro" ? "bg-secondary" : "bg-gold text-primary-foreground"}`}>
+                {l.plan === "Free" ? t("Free", "Bure") : l.plan}
+              </span>
+            </div>
             <p className="mt-1 font-mono text-sm text-muted-foreground">{l.lessons} {t("lessons", "masomo")}</p>
+            <p className="mt-3 text-sm text-muted-foreground">
+              {l.plan === "Free" ? t("Open to everyone", "Wote wanaruhusiwa") : `${t("Requires", "Inahitaji")} ${l.plan}`}
+            </p>
           </div>
         ))}
       </div>
@@ -47,7 +55,7 @@ function Courses() {
               <p className="text-sm text-muted-foreground">{t(m.den, m.dsw)}</p>
             </div>
             <span className="rounded-full bg-accent px-3 py-1 font-mono text-xs text-accent-foreground">
-              {t("Free", "Bure")}
+              {t("Free to start", "Bure kuanza")}
             </span>
           </div>
         ))}

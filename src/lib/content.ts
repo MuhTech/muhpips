@@ -10,7 +10,7 @@ export const markets = [
 ] as const;
 
 export const levels = [
-  { en: "Beginner", sw: "Mwanzo", lessons: 24 },
-  { en: "Intermediate", sw: "Kati", lessons: 32 },
-  { en: "Professional", sw: "Kitaalamu", lessons: 28 },
+  { en: "Beginner", sw: "Mwanzo", lessons: 24, plan: "Free" },
+  { en: "Intermediate", sw: "Kati", lessons: 32, plan: "Pro" },
+  { en: "Professional", sw: "Kitaalamu", lessons: 28, plan: "Elite" },
 ] as const;
